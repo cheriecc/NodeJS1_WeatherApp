@@ -1,7 +1,9 @@
 const request = require('request')
 
+const weatherApi = process.env.weatherApi
+
 const forecast = (address, callback) => {
-    const url = 'http://api.weatherstack.com/current?access_key=c07224a7f2a42b57f5683a3681a2cea0&query=' + address
+    const url = 'http://api.weatherstack.com/current?access_key=' + weatherApi + '&query=' + address
 
     request({url: url, json: true}, (error, request) => {
         if (error) {
